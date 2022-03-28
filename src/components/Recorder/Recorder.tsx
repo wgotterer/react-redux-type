@@ -37,10 +37,13 @@ const Recorder = () => {
     };
   }, []);
 
+
+
+// timestamp from Date.now is in millisecs so divide by 1000 to get seconds
   let seconds = started
     ? Math.floor((Date.now() - new Date(dateStart).getTime()) / 1000)
     : 0;
-
+    
     const hours = seconds ? Math.floor(seconds / 60 / 60) : 0
 
     seconds -= hours * 60 * 60
