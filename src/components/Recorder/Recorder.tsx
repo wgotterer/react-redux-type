@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectDateStart, start, stop } from '../../redux/recorder';
 import './Recorder.css';
 import cx from 'classnames';
+import { addZero } from '../../lib/utils';
 
-const addZero = (num: number) => num < 10 ? `0${num}` : `${num}`
+
 
 const Recorder = () => {
   // dispatch sends info to the store regarding which action we want to use
@@ -43,7 +44,7 @@ const Recorder = () => {
   let seconds = started
     ? Math.floor((Date.now() - new Date(dateStart).getTime()) / 1000)
     : 0;
-    
+
     const hours = seconds ? Math.floor(seconds / 60 / 60) : 0
 
     seconds -= hours * 60 * 60
